@@ -1,0 +1,126 @@
+.layout {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 20px;
+}
+
+.copy {
+  padding: clamp(32px, 5vw, 58px);
+  border-radius: 28px;
+}
+
+.copy h2,
+.contactCard h2 {
+  margin: 0 0 28px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.copy > p {
+  margin: 0 0 22px;
+  color: #a0afba;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.copy .editableHint {
+  margin: 36px 0 0;
+  padding: 18px 20px;
+  border-left: 1px solid var(--accent);
+  background: rgba(120, 169, 199, 0.05);
+  color: #6f8596;
+  font-size: 11px;
+}
+
+.side {
+  display: grid;
+  gap: 20px;
+}
+
+.avatar {
+  display: grid;
+  aspect-ratio: 1.1;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(126, 166, 191, 0.3), transparent 32%),
+    linear-gradient(145deg, rgba(28, 47, 68, 0.72), rgba(10, 21, 35, 0.65));
+}
+
+.avatar span {
+  color: #d8e5eb;
+  font-family: Georgia, serif;
+  font-size: 80px;
+}
+
+.avatar small {
+  align-self: end;
+  margin-bottom: 22px;
+  color: #526a7c;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+}
+
+.contactCard {
+  padding: 28px;
+  border-radius: 24px;
+}
+
+.contactCard .contactEyebrow { margin-bottom: 20px; }
+.contactCard h2 { margin-bottom: 12px; }
+
+.contactDescription {
+  margin: 0;
+  color: #788c9c;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.bottom {
+  display: grid;
+  margin-top: 72px;
+  padding-top: 56px;
+  align-items: end;
+  border-top: 1px solid var(--line);
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 36px;
+}
+
+.bottom .bottomEyebrow { margin-bottom: 12px; }
+
+.bottom h2 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 470;
+  letter-spacing: -0.035em;
+}
+
+.bottom > p {
+  margin: 0;
+  color: #778b9c;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.bottom code {
+  color: #a8bbc8;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { grid-template-columns: 1fr 1fr; }
+
+  .bottom {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .side { grid-template-columns: 1fr; }
+  .avatar { aspect-ratio: 1.25; }
+}

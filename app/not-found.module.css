@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  min-height: calc(100vh - 242px);
+  padding-block: 100px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.page .eyebrow { margin-bottom: 30px; }
+
+.symbol {
+  color: #a9c8d8;
+  font-size: 56px;
+  filter: drop-shadow(0 0 24px rgba(185, 220, 239, 0.22));
+}
+
+.page h1 {
+  margin: 28px 0 14px;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  margin: 0 0 34px;
+  color: #7d91a1;
+  font-size: 13px;
+}

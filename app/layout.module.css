@@ -1,0 +1,64 @@
+/* Decorative fixed backdrop; it never receives pointer events. */
+.ambientBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% -18%, rgba(255, 255, 255, 0.06), transparent 38%),
+    #000;
+  pointer-events: none;
+}
+
+.ambientBackground::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 58%);
+  content: "";
+}
+
+.aurora {
+  display: none;
+}
+
+.auroraOne {
+  top: 6%;
+  left: -18%;
+  background: #5e9bb8;
+}
+
+.auroraTwo {
+  right: -20%;
+  bottom: 3%;
+  background: #6a5f9e;
+  animation-delay: -9s;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 13% 17%, rgba(255, 255, 255, 0.12) 0 0.5px, transparent 0.8px),
+    radial-gradient(circle at 71% 61%, rgba(255, 255, 255, 0.08) 0 0.5px, transparent 0.8px);
+  background-size: 7px 7px, 11px 11px;
+  mix-blend-mode: soft-light;
+}
+
+.rainLines {
+  display: none;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, -2%, 0) scale(0.95); }
+  to { transform: translate3d(12%, 8%, 0) scale(1.1); }
+}
+
+@keyframes rainfall {
+  from { transform: translate3d(0, -10%, 0) rotate(12deg); }
+  to { transform: translate3d(-84px, 10%, 0) rotate(12deg); }
+}

@@ -1,0 +1,93 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  min-height: 390px;
+  padding: 30px;
+  flex-direction: column;
+  border-radius: 26px;
+}
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  color: #5d7487;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.symbol {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin-top: 60px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(185, 220, 239, 0.035);
+  color: #c7dce7;
+  font-size: 30px;
+}
+
+.title {
+  margin: 28px 0 12px;
+  font-size: 25px;
+  font-weight: 480;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0;
+  color: #8295a5;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.state {
+  margin-top: auto;
+  padding-top: 26px;
+  color: #5c7385;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.principle {
+  display: grid;
+  margin-top: 18px;
+  padding: 30px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(9, 21, 35, 0.38);
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+}
+
+.principle > span { color: var(--accent-warm); font-size: 20px; }
+
+.principle h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.principle p {
+  margin: 0;
+  color: #788c9d;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 580px) {
+  .card { min-height: 340px; }
+}

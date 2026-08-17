@@ -1,0 +1,24 @@
+.intro {
+  max-width: 780px;
+  margin-bottom: 72px;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 510;
+  letter-spacing: -0.06em;
+  line-height: 1.06;
+}
+
+.description {
+  max-width: 660px;
+  margin: 30px 0 0;
+  color: #86868b;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+@media (max-width: 580px) {
+  .intro { margin-bottom: 54px; }
+}
