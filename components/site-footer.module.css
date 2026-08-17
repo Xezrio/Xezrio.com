@@ -28,6 +28,13 @@
   font-weight: 490;
 }
 
+.logo {
+  display: block;
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .links {
   display: flex;
   align-items: center;

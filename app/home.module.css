@@ -17,6 +17,18 @@
   transform: scale(1.025);
 }
 
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 56%;
+  pointer-events: none;
+  filter: saturate(0.72) contrast(1.08) brightness(0.72);
+  transform: scale(1.025);
+}
+
 .heroShade {
   position: absolute;
   inset: 0;
@@ -647,6 +659,8 @@
   .heroInner { min-height: calc(100svh - 66px); }
 
   .heroImage { object-position: 57% 55%; }
+  
+  .heroVideo { object-position: 57% 55%; }
 
   .heroShade {
     background:

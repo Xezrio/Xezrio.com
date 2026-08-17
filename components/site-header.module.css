@@ -3,8 +3,8 @@
   top: 0;
   z-index: 50;
   border-bottom: 1px solid transparent;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: saturate(140%) blur(22px);
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: saturate(140%) blur(12px);
 }
 
 .navShell {
@@ -18,6 +18,7 @@
 .wordmark {
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .wordmarkSuffix {
@@ -89,6 +90,33 @@
   display: block;
   width: 115px;
   height: auto;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.wordmark:hover .logo {
+  opacity: 0.8;
+  transform: scale(1.03);
+}
+
+.pfp {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  filter: saturate(0.90) brightness(0.90);
+}
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 3px;
+  color: var(--muted-bright);
 }
 
 @supports not (backdrop-filter: blur(1px)) {

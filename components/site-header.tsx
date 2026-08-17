@@ -3,6 +3,7 @@ import styles from "./site-header.module.css";
 import ui from "./ui.module.css";
 import logo from "@/public/logo.png"
 import Image from "next/image";
+import pfp from "@/public/pfp.png"
 
 const navigation = [
   { href: "/blog", label: "Blog" },
@@ -34,9 +35,17 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <span className={styles.status} title="网站正在建设中">
-          <i className={styles.statusDot} aria-hidden="true" /> PHASE 01
-        </span>
+        <Link
+          className={styles.profileLink}
+          href="/about"
+        >
+          <span className={styles.username}>Xezrio</span>
+          <Image
+            className={styles.pfp}
+            src={pfp}
+            alt=""
+          />
+        </Link>
       </div>
     </header>
   );

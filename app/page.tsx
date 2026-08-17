@@ -3,66 +3,24 @@ import Link from "next/link";
 import styles from "./home.module.css";
 import ui from "@/components/ui.module.css";
 import { blogPosts, reviews } from "@/lib/content";
-import heroImage from "@/public/background.png";
 
-const latestNotes = [...blogPosts, ...reviews]
-  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-  .slice(0, 4)
-  .map((item, index) => {
-    const isBlogPost = item.kind === "blog";
-
-    return {
-      eyebrow: `${isBlogPost ? "WRITTEN NOTE" : "WATCH LOG"} · ${String(index + 1).padStart(2, "0")}`,
-      title: item.title,
-      excerpt: item.description,
-      href: `/${isBlogPost ? "blog" : "reviews"}/${item.slug}`,
-      publishedAt: item.publishedAt.replaceAll("-", "."),
-      kind: item.kind,
-    };
-  });
-
-const portals = [
-  {
-    index: "01",
-    overline: "WRITING / NOTES",
-    display: "WORDS",
-    title: "文字与碎片",
-    description: "技术笔记、生活随想，以及没有必要被归类的片段。",
-    href: "/blog",
-    label: "进入博客",
-  },
-  {
-    index: "02",
-    overline: "FILM / ANIME",
-    display: "FRAME",
-    title: "放映室",
-    description: "电影与番剧的观看记录，偶尔也认真写一篇长评。",
-    href: "/reviews",
-    label: "查看片单",
-  },
-  {
-    index: "03",
-    overline: "SMALL / USEFUL",
-    display: "TOOLS",
-    title: "小工具箱",
-    description: "为自己做的浏览器工具，也希望它们刚好能帮到你。",
-    href: "/tools",
-    label: "打开工具箱",
-  },
-];
 
 export default function Home() {
   return (
     <main className={styles.home}>
       <section className={styles.hero} aria-labelledby="hero-title">
-        <Image
-          className={styles.heroImage}
-          src={heroImage}
-          alt=""
-          fill
-          preload
-          sizes="100vw"
-        />
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/background.png"
+          aria-hidden="true"
+        >
+          <source src="/background.mp4" type="video/mp4" />
+        </video>
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={`${ui.shell} ${styles.heroInner}`}>
           <div className={styles.heroTopline}>
@@ -77,7 +35,7 @@ export default function Home() {
             </h1>
             <p className={styles.heroLede}>Thoughts, fragments, and what's on my mind.</p>
             <div className={styles.heroActions}>
-              <Link className={styles.heroPrimary} href="/blog">Explore</Link>
+              <Link className={styles.heroPrimary} href="#collections">Explore</Link>
               <Link className={styles.heroSecondary} href="/about">About me <span aria-hidden="true">↗</span></Link>
             </div>
           </div>
@@ -89,13 +47,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${ui.shell} ${styles.collectionSection}`} aria-labelledby="portals-title">
+      <section id="collections" className={`${ui.shell} ${styles.collectionSection}`} aria-labelledby="portals-title">
         <div className={styles.sectionTopline}>
           <div>
             <p>COLLECTIONS /</p>
             <h2 id="portals-title">Somewhere to wander.</h2>
           </div>
-          <p>Start with<br />what you interested in.</p>
         </div>
 
         <div className={styles.portalGrid}>
@@ -160,3 +117,49 @@ export default function Home() {
     </main>
   );
 }
+
+const latestNotes = [...blogPosts, ...reviews]
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  .slice(0, 4)
+  .map((item, index) => {
+    const isBlogPost = item.kind === "blog";
+
+    return {
+      eyebrow: `${isBlogPost ? "WRITTEN NOTE" : "WATCH LOG"} · ${String(index + 1).padStart(2, "0")}`,
+      title: item.title,
+      excerpt: item.description,
+      href: `/${isBlogPost ? "blog" : "reviews"}/${item.slug}`,
+      publishedAt: item.publishedAt.replaceAll("-", "."),
+      kind: item.kind,
+    };
+  });
+
+const portals = [
+  {
+    index: "01",
+    overline: "WRITING / NOTES",
+    display: "WORDS",
+    title: "文字与碎片",
+    description: "技术笔记、生活随想，以及没有必要被归类的片段。",
+    href: "/blog",
+    label: "进入博客",
+  },
+  {
+    index: "02",
+    overline: "FILM / ANIME",
+    display: "FRAME",
+    title: "放映室",
+    description: "电影与番剧的观看记录，偶尔也认真写一篇长评。",
+    href: "/reviews",
+    label: "查看片单",
+  },
+  {
+    index: "03",
+    overline: "SMALL / USEFUL",
+    display: "TOOLS",
+    title: "小工具箱",
+    description: "为自己做的浏览器工具，也希望它们刚好能帮到你。",
+    href: "/tools",
+    label: "打开工具箱",
+  },
+];
