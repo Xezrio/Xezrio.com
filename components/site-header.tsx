@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styles from "./site-header.module.css";
 import ui from "./ui.module.css";
+import logo from "@/public/logo.png"
+import Image from "next/image";
 
 const navigation = [
   { href: "/blog", label: "Blog" },
@@ -13,9 +15,13 @@ export function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={`${ui.shell} ${styles.navShell}`}>
-        <Link className={styles.wordmark} href="/" aria-label="返回 xezrio.com 首页">
-          <span className={styles.wordmarkDot} aria-hidden="true" />
-          xezrio<span className={styles.wordmarkSuffix}>.com</span>
+        <Link className={styles.wordmark} href="/" aria-label="return to Home of xezrio.com">
+          <Image
+            className={styles.logo}
+            src={logo}    
+            alt=""
+            preload
+          />
         </Link>
         <nav className={styles.navigation} aria-label="主要导航">
           {navigation.map((item, index) => (

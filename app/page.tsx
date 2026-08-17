@@ -66,14 +66,14 @@ export default function Home() {
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={`${ui.shell} ${styles.heroInner}`}>
           <div className={styles.heroTopline}>
-            <span>XEZRIO / PERSONAL ARCHIVE</span>
-            <span>EST. 2026</span>
+            <span>PORTFOLIO /</span>
+            <span>Up for some music?</span>
           </div>
 
           <div className={styles.heroCopy}>
             <p className={styles.heroEyebrow}>XEZRIO&apos;S DIGITAL GARDEN</p>
             <h1 className={styles.heroTitle} id="hero-title">
-              Where the things I love live.
+              where the things I love live.
             </h1>
             <p className={styles.heroLede}>Thoughts, fragments, and what's on my mind.</p>
             <div className={styles.heroActions}>
@@ -89,25 +89,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.manifesto} aria-labelledby="manifesto-title">
-        <div className={`${ui.shell} ${styles.manifestoInner}`}>
-          <div className={styles.manifestoMeta}>
-            <span>01</span>
-            <span>A PERSONAL ARCHIVE</span>
-          </div>
-          <div className={styles.manifestoCopy}>
-            <h2 id="manifesto-title">A digital garden that grows slowly with curiosity.</h2>
-            <p>Come sit for a while.</p>
-          </div>
-          <p className={styles.manifestoNote}>写下所想，保存所见，也把偶尔做出来的小东西留在这里。</p>
-        </div>
-      </section>
-
       <section className={`${ui.shell} ${styles.collectionSection}`} aria-labelledby="portals-title">
         <div className={styles.sectionTopline}>
           <div>
-            <p>02 / COLLECTIONS</p>
-            <h2 id="portals-title">where you heading to.</h2>
+            <p>COLLECTIONS /</p>
+            <h2 id="portals-title">Somewhere to wander.</h2>
           </div>
           <p>Start with<br />what you interested in.</p>
         </div>
@@ -136,7 +122,7 @@ export default function Home() {
       <section className={`${ui.shell} ${styles.latestSection}`} aria-labelledby="latest-title">
         <div className={styles.sectionTopline}>
           <div>
-            <p>03 / LATEST SIGNALS</p>
+            <p>LATEST SIGNALS /</p>
             <h2 id="latest-title">最近留下的东西。</h2>
           </div>
           <Link className={styles.quietLink} href="/blog">查看全部内容 ↗</Link>
@@ -166,7 +152,7 @@ export default function Home() {
 
       <section className={styles.closing} aria-label="结束语">
         <div className={`${ui.shell} ${styles.closingInner}`}>
-          <p>STILL CURIOUS.</p>
+          <p>STAY CURIOUS.</p>
           <h2>继续看，继续想，<span>继续做喜欢的事。</span></h2>
           <Link href="/about">More about Xezrio <span aria-hidden="true">↗</span></Link>
         </div>

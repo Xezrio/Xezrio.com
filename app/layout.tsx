@@ -6,7 +6,7 @@ import styles from "./layout.module.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xezrio.com"),
-  title: { default: "Xezrio — Personal Digital Garden", template: "%s — Xezrio" },
+  title: { default: "Xezrio - Digital Garden", template: "%s - Xezrio" },
   description: "Xezrio 的个人数字花园，收藏文字、影像、灵感与亲手制作的小工具。",
   applicationName: "xezrio.com",
   openGraph: {
