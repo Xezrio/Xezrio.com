@@ -10,6 +10,9 @@ export const blogPosts = [
     publishedAt: "2026-08-16",
     readingTime: "<1 min",
     tags: ["建站", "随笔"],
+    // Put the file in public, then use a path such as "/articles/my-post.jpg".
+    image: "",
+    imageAlt: "",
     kind: "blog" as const,
     Component: DigitalGardenPost,
   },
@@ -24,6 +27,8 @@ export const reviews = [
     category: "随想",
     rating: "— / 10",
     tags: ["电影", "动画", "示例"],
+    image: "",
+    imageAlt: "",
     kind: "review" as const,
     Component: AfterTheCreditsReview,
   },

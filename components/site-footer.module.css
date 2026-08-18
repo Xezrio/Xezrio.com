@@ -38,14 +38,14 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 24px;
-  color: #6e6e73;
+  gap: 4px;
+  color: #fff;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .links a:hover,
-.links a:focus-visible { color: #fff; }
+.links a:focus-visible { color: #0591ef; }
 
 @media (max-width: 680px) {
   .inner {

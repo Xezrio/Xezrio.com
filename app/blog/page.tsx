@@ -15,7 +15,7 @@ export default function BlogPage() {
     <main className={`${ui.shell} ${ui.innerPage}`}>
       <PageIntro
         eyebrow="BLOG / 文字与碎片"
-        title="写下一些值得留下的东西。"
+        title="Something left unsaid."
         description="技术、生活与偶尔冒出来的念头。文章目前以 MDX 文件保存，打开编辑器就可以继续写。"
       />
 

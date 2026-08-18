@@ -18,9 +18,10 @@ export function SiteFooter() {
           <p className={styles.tagline}>Made slowly, with curiosity and late-night music.</p>
           <span className={styles.tagline}>Xezrio © 2026</span>
         </div>
-        {/* <div className={styles.links}> */}
-          <span className={styles.tagline}>Contact: X@xezrio.com</span>
-        {/* </div> */}
+        <div className={styles.links}>
+          <span className={styles.tagline}>Contact: </span>
+          <a href="mailto:X@xezrio.com">X@xezrio.com</a>
+        </div>
       </div>
     </footer>
   );

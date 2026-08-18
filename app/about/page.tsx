@@ -54,8 +54,8 @@ export default function AboutPage() {
       </div>
 
       <section className={styles.bottom}>
-        <div><p className={`${ui.eyebrow} ${styles.bottomEyebrow}`}>ELSEWHERE</p><h2>正式经历会放在另一个空间。</h2></div>
-        <p>未来的 <code>resume.xezrio.com</code> 会专门展示简历与项目；这里继续保留更松弛、更个人化的内容。</p>
+        <div><p className={`${ui.eyebrow} ${styles.bottomEyebrow}`}>GET TO KNOW MORE</p><h2>正式经历会放在另一个空间。</h2></div>
+        <p> <Link href="resume.xezrio.com">resume.xezrio.com</Link> 会专门展示简历与项目；这里保留更松弛、更个人化的内容。</p>
         <Link className={`${ui.button} ${ui.buttonGhost}`} href="/">返回首页</Link>
       </section>
     </main>

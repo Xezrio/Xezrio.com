@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 import styles from "./layout.module.css";
+import localFont from "next/font/local"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xezrio.com"),
@@ -35,7 +36,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN">
+    <html
+      lang="zh-CN"
+      className={handwriting.variable}
+    >
       <body>
         <div className={styles.ambientBackground} aria-hidden="true">
           <span className={`${styles.aurora} ${styles.auroraOne}`} />
@@ -50,3 +54,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+
+const handwriting = localFont({
+  src: [
+    {
+      path: "./fonts/BradleysPen.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/BradleyHandBold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-handwriting",
+  display: "swap",
+});

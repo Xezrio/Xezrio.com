@@ -33,7 +33,7 @@ export default function Home() {
             <h1 className={styles.heroTitle} id="hero-title">
               where the things I love live.
             </h1>
-            <p className={styles.heroLede}>Thoughts, fragments, and what's on my mind.</p>
+            <p className={styles.heroLede}>Thoughts, fragments, and what&apos;s on my mind.</p>
             <div className={styles.heroActions}>
               <Link className={styles.heroPrimary} href="#collections">Explore</Link>
               <Link className={styles.heroSecondary} href="/about">About me <span aria-hidden="true">↗</span></Link>
@@ -80,7 +80,7 @@ export default function Home() {
         <div className={styles.sectionTopline}>
           <div>
             <p>LATEST SIGNALS /</p>
-            <h2 id="latest-title">最近留下的东西。</h2>
+            <h2 id="latest-title">Lately.</h2>
           </div>
           <Link className={styles.quietLink} href="/blog">查看全部内容 ↗</Link>
         </div>
@@ -88,19 +88,33 @@ export default function Home() {
         <div className={styles.signalGrid}>
           {latestNotes.map((item, index) => (
             <Link className={styles.signalCard} href={item.href} key={item.href}>
-              <div className={`${styles.signalPoster} ${item.kind === "blog" ? styles.signalPosterBlog : styles.signalPosterReview}`}>
-                <div className={styles.posterTopline}>
-                  <span>{item.eyebrow}</span>
-                  <span>{item.publishedAt}</span>
-                </div>
-                <span className={styles.posterNumber}>0{index + 1}</span>
-                <strong>{item.kind === "blog" ? "NOTE" : "FRAME"}</strong>
-                <i>{item.kind === "blog" ? "THOUGHTS IN PROGRESS" : "AFTER THE CREDITS"}</i>
-              </div>
               <div className={styles.signalBody}>
+                <div className={styles.signalMeta}>
+                  <span>{item.eyebrow}</span>
+                  <time dateTime={item.publishedAt}>{item.publishedAtLabel}</time>
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.excerpt}</p>
-                <span>打开阅读 <i aria-hidden="true">↗</i></span>
+                <span className={styles.signalRead}>打开阅读 <i aria-hidden="true">↗</i></span>
+              </div>
+              <div className={styles.signalMedia}>
+                {item.image ? (
+                  <Image
+                    className={styles.signalImage}
+                    src={item.image}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 900px) 280px, 160px"
+                  />
+                ) : (
+                  <div
+                    className={`${styles.signalPlaceholder} ${item.kind === "blog" ? styles.signalPlaceholderBlog : styles.signalPlaceholderReview}`}
+                    aria-hidden="true"
+                  >
+                    <span>{item.kind === "blog" ? "WRITING" : "WATCH LOG"}</span>
+                    <strong>{String(index + 1).padStart(2, "0")}</strong>
+                  </div>
+                )}
               </div>
             </Link>
           ))}
@@ -109,8 +123,8 @@ export default function Home() {
 
       <section className={styles.closing} aria-label="结束语">
         <div className={`${ui.shell} ${styles.closingInner}`}>
-          <p>STAY CURIOUS.</p>
-          <h2>继续看，继续想，<span>继续做喜欢的事。</span></h2>
+          <p>CURIOUSITY.</p>
+          <h2>Stay Hungry, <span>Stay Foolish.</span></h2>
           <Link href="/about">More about Xezrio <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
@@ -129,18 +143,22 @@ const latestNotes = [...blogPosts, ...reviews]
       title: item.title,
       excerpt: item.description,
       href: `/${isBlogPost ? "blog" : "reviews"}/${item.slug}`,
-      publishedAt: item.publishedAt.replaceAll("-", "."),
+      publishedAt: item.publishedAt,
+      publishedAtLabel: item.publishedAt.replaceAll("-", "."),
+      image: item.image,
+      imageAlt: item.imageAlt,
       kind: item.kind,
     };
   });
 
+// The Portal of the three space
 const portals = [
   {
     index: "01",
     overline: "WRITING / NOTES",
     display: "WORDS",
     title: "文字与碎片",
-    description: "技术笔记、生活随想，以及没有必要被归类的片段。",
+    description: "生活随想、技术笔记，以及没有必要被归类的片段。",
     href: "/blog",
     label: "进入博客",
   },
@@ -149,9 +167,9 @@ const portals = [
     overline: "FILM / ANIME",
     display: "FRAME",
     title: "放映室",
-    description: "电影与番剧的观看记录，偶尔也认真写一篇长评。",
+    description: "电影与番剧的观看记录，偶尔写一篇长评。",
     href: "/reviews",
-    label: "查看片单",
+    label: "浏览片单",
   },
   {
     index: "03",
@@ -160,6 +178,6 @@ const portals = [
     title: "小工具箱",
     description: "为自己做的浏览器工具，也希望它们刚好能帮到你。",
     href: "/tools",
-    label: "打开工具箱",
+    label: "翻翻工具箱",
   },
 ];
