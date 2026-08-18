@@ -1,3 +1,127 @@
+.page {
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.intro {
+  margin-bottom: 72px;
+}
+
+/* for the gif wrapper */
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.titleRow h1 {
+  white-space: nowrap;
+}
+
+.titleGif {
+  display: block;
+  width: 72px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.findMeRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: nowrap;
+}
+
+.findMeGif {
+  display: block;
+  width: 30px;
+  height: auto;
+  flex-shrink: 0;
+  margin: 0 0 28px;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 510;
+  letter-spacing: -0.06em;
+  line-height: 1.06;
+}
+
+.description {
+  max-width: 660px;
+  margin: 30px 0 0;
+  color: #a1a1a6;
+  font-family: var(--font-handwriting), cursive;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  transform: rotate(-2deg);
+}
+
+.eyebrowAdjust {
+  color:#cdd9e2;
+}
+
+.socialList {
+  display: grid;
+  margin-top: 24px;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.socialLink {
+  display: flex;
+  width: auto;
+  min-height: 32px;
+  padding: 0 14px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 0;
+  border-radius: 999px;
+  background: rgba(205, 217, 226, 0.1);
+  color: #afc2d1;
+  border: 1px solid rgba(205, 217, 226, 0.12);
+
+  font-family: var(--font-nunito), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.socialIcon {
+  display: grid;
+  width: auto;
+  height: auto;
+  place-items: center;
+  color: currentColor;
+  font-size: 17px;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  background: rgba(205, 217, 226, 0.18);
+  color: #e8f1f7;
+}
+
+.toHomepage {
+  font-weight: 700;
+}
+
+.meLink:hover {
+  color: #e8f1f7;
+  transition: color 200ms ease;
+}
+
 .layout {
   display: grid;
   align-items: start;
@@ -5,63 +129,24 @@
   gap: 20px;
 }
 
-.copy {
+.aboutCard {
   padding: clamp(32px, 5vw, 58px);
   border-radius: 28px;
 }
 
-.copy h2,
+.aboutCard h2,
 .contactCard h2 {
   margin: 0 0 28px;
   font-size: 22px;
   font-weight: 500;
 }
 
-.copy > p {
+.aboutCard > p {
   margin: 0 0 22px;
   color: #a0afba;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 2;
-}
-
-.copy .editableHint {
-  margin: 36px 0 0;
-  padding: 18px 20px;
-  border-left: 1px solid var(--accent);
-  background: rgba(120, 169, 199, 0.05);
-  color: #6f8596;
-  font-size: 11px;
-}
-
-.side {
-  display: grid;
-  gap: 20px;
-}
-
-.avatar {
-  position: relative;
-  aspect-ratio: 1.0;
-  place-items: center;
-  overflow: hidden;
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(126, 166, 191, 0.3), transparent 32%),
-    linear-gradient(145deg, rgba(28, 47, 68, 0.72), rgba(10, 21, 35, 0.65));
-}
-
-.avatar span {
-  color: #d8e5eb;
-  font-family: Georgia, serif;
-  font-size: 80px;
-}
-
-.avatar small {
-  align-self: end;
-  margin-bottom: 22px;
-  color: #526a7c;
-  font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.16em;
 }
 
 .contactCard {
@@ -105,62 +190,8 @@
   line-height: 1.8;
 }
 
-.bottom code {
-  color: #a8bbc8;
-  font-family: var(--font-mono);
-}
-
-.titleRow {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: nowrap;
-}
-
-.titleRow h1 {
-  white-space: nowrap;
-}
-
-.titleGif {
-  display: block;
-  width: 72px;
-  height: auto;
-  flex-shrink: 0;
-}
-
-.pfp {
-  object-fit: cover;
-  object-position: center;
-}
-
-.intro {
-  max-width: 780px;
-  margin-bottom: 72px;
-}
-
-.intro h1 {
-  margin: 0;
-  font-size: clamp(44px, 6vw, 76px);
-  font-weight: 510;
-  letter-spacing: -0.06em;
-  line-height: 1.06;
-}
-
-.description {
-  max-width: 660px;
-  margin: 30px 0 0;
-  color: #a1a1a6;
-  font-family: var(--font-handwriting), cursive;
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0;
-  transform: rotate(-2deg);
-}
-
 @media (max-width: 800px) {
   .layout { grid-template-columns: 1fr; }
-  .side { grid-template-columns: 1fr 1fr; }
 
   .bottom {
     align-items: start;
@@ -169,8 +200,6 @@
 }
 
 @media (max-width: 580px) {
-  .side { grid-template-columns: 1fr; }
-  .avatar { aspect-ratio: 1.25; }
   .intro { margin-bottom: 54px; }
 
   .titleRow {

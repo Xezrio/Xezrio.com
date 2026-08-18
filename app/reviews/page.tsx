@@ -6,7 +6,7 @@ import { formatDate, reviews } from "@/lib/content";
 import styles from "./reviews.module.css";
 
 export const metadata: Metadata = {
-  title: "放映室",
+  title: "Reviews",
   description: "Xezrio 的电影、番剧观看记录与作品评论。",
 };
 
@@ -15,8 +15,8 @@ export default function ReviewsPage() {
     <main className={`${ui.shell} ${ui.innerPage}`}>
       <PageIntro
         eyebrow="SCREENING ROOM / 放映室"
-        title="散场以后，再多停留一会儿。"
-        description="电影、番剧和那些值得反复回想的片段。长评与三两句观看记录都会在这里出现。"
+        title="Linger on it a little longer."
+        description="Albums. TV Serires. Just my kind of things."
       />
 
       <div className={styles.grid}>
@@ -41,7 +41,7 @@ export default function ReviewsPage() {
         <div className={`${styles.card} ${styles.placeholder}`}>
           <span aria-hidden="true">02</span>
           <p>NEXT SCREENING</p>
-          <h2>下一篇评论留给你真正想记录的作品。</h2>
+          <h2>下一部印象深刻的作品</h2>
         </div>
       </div>
     </main>

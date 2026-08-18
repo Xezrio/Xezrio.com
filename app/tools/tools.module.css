@@ -1,15 +1,31 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
 .card {
+  position: relative;
   display: flex;
-  min-height: 390px;
+  min-height: 190px;
   padding: 30px;
   flex-direction: column;
   border-radius: 26px;
+}
+
+.symbolFrame {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(185, 220, 239, 0.035);
+}
+
+.symbolImage {
+  object-fit: contain;
+  padding: 16px;
 }
 
 .topline {
@@ -23,9 +39,8 @@
 
 .symbol {
   display: grid;
-  width: 82px;
-  height: 82px;
-  margin-top: 60px;
+  width: 100px;
+  height: 100px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 26px;

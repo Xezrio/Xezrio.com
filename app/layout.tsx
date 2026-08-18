@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 import styles from "./layout.module.css";
 import localFont from "next/font/local"
+import { Nunito } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xezrio.com"),
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="zh-CN"
-      className={handwriting.variable}
+      className={`${handwriting.variable} ${nunito.variable}`}
     >
       <body>
         <div className={styles.ambientBackground} aria-hidden="true">
@@ -69,5 +70,11 @@ const handwriting = localFont({
     },
   ],
   variable: "--font-handwriting",
+  display: "swap",
+});
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: "--font-nunito",
   display: "swap",
 });

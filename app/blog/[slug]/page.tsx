@@ -20,16 +20,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!item) return {};
 
+  const metadataTitle = item.title ?? `文字片段 · ${formatDate(item.publishedAt)}`;
+
   return {
-    title: item.title,
+    title: metadataTitle,
     description: item.description,
     openGraph: {
-      title: item.title,
+      title: metadataTitle,
       description: item.description,
       type: "article",
       publishedTime: item.publishedAt,
     },
-    twitter: { title: item.title, description: item.description },
+    twitter: { title: metadataTitle, description: item.description },
   };
 }
 
@@ -47,12 +49,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Link className={ui.backLink} href="/blog">← 返回博客</Link>
       <header className={ui.articleHeader}>
         <div className={ui.contentMeta}>
-          <span>BLOG</span>
+          <span>{item.title ? "BLOG" : "NOTE"}</span>
           <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>
-          <span>{item.readingTime}</span>
+          {item.readingTime && <span>{item.readingTime}</span>}
         </div>
-        <h1>{item.title}</h1>
-        <p>{item.description}</p>
+        {item.title ? (
+          <>
+            <h1>{item.title}</h1>
+            <p>{item.description}</p>
+          </>
+        ) : (
+          <h1 className={ui.visuallyHidden}>文字片段</h1>
+        )}
         <div className={ui.tagRow}>{item.tags.map((tag: string) => <span key={tag}>#{tag}</span>)}</div>
       </header>
       <article className={ui.prose}><Component /></article>

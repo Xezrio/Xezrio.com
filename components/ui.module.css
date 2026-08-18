@@ -106,7 +106,7 @@
   gap: 14px;
   color: #6e6e73;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -130,7 +130,7 @@
   border-radius: 999px;
   color: #86868b;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .articlePage {
@@ -168,6 +168,18 @@
   color: #86868b;
   font-size: 14px;
   line-height: 1.9;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .prose {

@@ -1,18 +1,29 @@
 import Link from "next/link";
+import Image, { type StaticImageData } from "next/image";
+import { FiUser } from "react-icons/fi";
 import styles from "./site-header.module.css";
 import ui from "./ui.module.css";
-import logo from "@/public/logo.png"
-import Image from "next/image";
-import pfp from "@/public/pfp.png"
+import logo from "@/public/logo.png";
 
 const navigation = [
   { href: "/blog", label: "Blog" },
-  { href: "/reviews", label: "Salon" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/tools", label: "Tools" },
   { href: "/about", label: "About" },
 ];
 
-export function SiteHeader() {
+type HeaderUser = {
+  name: string;
+  avatar: string | StaticImageData;
+};
+
+type SiteHeaderProps = {
+  user?: HeaderUser | null;
+};
+
+export function SiteHeader({ user = null }: SiteHeaderProps) {
+  const displayName = user?.name ?? "Login";
+
   return (
     <header className={styles.header}>
       <div className={`${ui.shell} ${styles.navShell}`}>
@@ -38,13 +49,23 @@ export function SiteHeader() {
         <Link
           className={styles.profileLink}
           href="/about"
+          aria-label={user ? `${displayName} 's Personal Page'` : "Register"}
+          title={user ? displayName : "Guest"}
         >
-          <span className={styles.username}>Xezrio</span>
-          <Image
-            className={styles.pfp}
-            src={pfp}
-            alt=""
-          />
+          <span className={styles.username}>{displayName}</span>
+          <span className={styles.avatarFrame}>
+            {user ? (
+              <Image
+                className={styles.pfp}
+                src={user.avatar}
+                alt=""
+                width={30}
+                height={30}
+              />
+            ) : (
+              <FiUser className={styles.guestAvatar} aria-hidden="true" />
+            )}
+          </span>
         </Link>
       </div>
     </header>

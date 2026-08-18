@@ -82,7 +82,6 @@ export default function Home() {
             <p>LATEST SIGNALS /</p>
             <h2 id="latest-title">Lately.</h2>
           </div>
-          <Link className={styles.quietLink} href="/blog">查看全部内容 ↗</Link>
         </div>
 
         <div className={styles.signalGrid}>
@@ -93,22 +92,34 @@ export default function Home() {
                   <span>{item.eyebrow}</span>
                   <time dateTime={item.publishedAt}>{item.publishedAtLabel}</time>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.excerpt}</p>
-                <span className={styles.signalRead}>打开阅读 <i aria-hidden="true">↗</i></span>
+                {/* choosable title */}
+                {item.title ? (
+                  <>
+                    <h3>{item.title}</h3>
+                    <p>{item.excerpt}</p>
+                  </>
+                ) : (
+                  <p className={styles.signalNote}>{item.excerpt}</p>
+                )}
               </div>
-              <div className={styles.signalMedia}>
+              <div className={`${styles.signalMedia} ${styles.signalMediaInset}`}>
                 {item.image ? (
-                  <Image
-                    className={styles.signalImage}
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 900px) 280px, 160px"
-                  />
+                  <div className={styles.signalImageFrame}>
+                    <Image
+                      className={styles.signalImage}
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      sizes="(max-width: 760px) calc(100vw - 80px), (max-width: 900px) 248px, 188px"
+                    />
+                  </div>
                 ) : (
                   <div
-                    className={`${styles.signalPlaceholder} ${item.kind === "blog" ? styles.signalPlaceholderBlog : styles.signalPlaceholderReview}`}
+                    className={`${styles.signalPlaceholder} ${
+                      item.kind === "blog"
+                        ? styles.signalPlaceholderBlog
+                        : styles.signalPlaceholderReview
+                    }`}
                     aria-hidden="true"
                   >
                     <span>{item.kind === "blog" ? "WRITING" : "WATCH LOG"}</span>
@@ -123,9 +134,8 @@ export default function Home() {
 
       <section className={styles.closing} aria-label="结束语">
         <div className={`${ui.shell} ${styles.closingInner}`}>
-          <p>CURIOUSITY.</p>
+          <p>PERSIST.</p>
           <h2>Stay Hungry, <span>Stay Foolish.</span></h2>
-          <Link href="/about">More about Xezrio <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
     </main>

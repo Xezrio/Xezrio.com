@@ -1,17 +1,30 @@
 import DigitalGardenPost from "@/content/blog/building-my-digital-garden.mdx";
 import AfterTheCreditsReview from "@/content/reviews/after-the-credits.mdx";
+import type { ComponentType } from "react";
+
+export type BlogPost = {
+  slug: string;
+  title?: string;
+  description: string;
+  publishedAt: string;
+  readingTime?: string;
+  tags: string[];
+  image: string;
+  imageAlt: string;
+  kind: "blog";
+  Component: ComponentType;
+};
 
 // Import an MDX file and register its metadata here to publish a new entry.
-export const blogPosts = [
+export const blogPosts: BlogPost[] = [
   {
     slug: "building-my-digital-garden",
-    title: "It starts today!",
-    description: "What should I put here?",
+    title: "My website starts today!",
+    description: "After three months of learning, I finally settled my place to stay on the Internet :3",
     publishedAt: "2026-08-16",
-    readingTime: "<1 min",
-    tags: ["建站", "随笔"],
+    tags: ["建站", "记录"],
     // Put the file in public, then use a path such as "/articles/my-post.jpg".
-    image: "",
+    image: "/mauLoading.gif",
     imageAlt: "",
     kind: "blog" as const,
     Component: DigitalGardenPost,

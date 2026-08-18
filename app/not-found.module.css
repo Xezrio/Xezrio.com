@@ -8,12 +8,13 @@
   text-align: center;
 }
 
-.page .eyebrow { margin-bottom: 30px; }
+.page .eyebrow { margin-bottom: 30px; color:rgb(171, 176, 181) }
 
 .symbol {
   color: #a9c8d8;
   font-size: 56px;
   filter: drop-shadow(0 0 24px rgba(185, 220, 239, 0.22));
+  transform: rotate(18deg);
 }
 
 .page h1 {
@@ -27,4 +28,8 @@
   margin: 0 0 34px;
   color: #7d91a1;
   font-size: 13px;
+}
+
+.toHomepage {
+  font-weight: 700;  
 }

@@ -8,8 +8,8 @@ export default function NotFound() {
       <p className={`${ui.eyebrow} ${styles.eyebrow}`}>404 / SIGNAL LOST</p>
       <div className={styles.symbol} aria-hidden="true">☂</div>
       <h1>这一页还没有出现在雨里。</h1>
-      <p className={styles.description}>可能是链接写错了，也可能这个角落还在等待建设。</p>
-      <Link className={`${ui.button} ${ui.buttonPrimary}`} href="/">回到首页</Link>
+      <p className={styles.description}>也许是链接写错了，或许这个角落还在等待装点。</p>
+      <Link className={`${ui.button} ${ui.buttonPrimary} ${styles.toHomepage}`} href="/">Homepage</Link>
     </main>
   );
 }
