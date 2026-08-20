@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { FloatingRecordPlayer } from "@/components/floating-record-player";
+import { MusicPlayerProvider } from "@/components/music-player-context";
 import "./globals.css";
 import styles from "./layout.module.css";
-import localFont from "next/font/local"
+import localFont from "next/font/local";
 import { Nunito } from "next/font/google";
 
 export const metadata: Metadata = {
@@ -42,15 +44,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${handwriting.variable} ${nunito.variable} ${segoeScript.variable}`}
     >
       <body>
-        <div className={styles.ambientBackground} aria-hidden="true">
-          <span className={`${styles.aurora} ${styles.auroraOne}`} />
-          <span className={`${styles.aurora} ${styles.auroraTwo}`} />
-          <span className={styles.grain} />
-          <span className={styles.rainLines} />
-        </div>
-        <SiteHeader />
+        <MusicPlayerProvider>
+          <div className={styles.ambientBackground} aria-hidden="true">
+            <span className={`${styles.aurora} ${styles.auroraOne}`} />
+            <span className={`${styles.aurora} ${styles.auroraTwo}`} />
+            <span className={styles.grain} />
+            <span className={styles.rainLines} />
+          </div>
+          <SiteHeader />
           {children}
-        <SiteFooter />
+          <SiteFooter />
+          <FloatingRecordPlayer />
+        </MusicPlayerProvider>
       </body>
     </html>
   );
@@ -89,4 +94,4 @@ const segoeScript = localFont({
   ],
   variable: "--font-segoe",
   display: "swap",
-}); 
+});
