@@ -11,8 +11,8 @@ import {
 
 export const musicTrack = {
   title: "BETTER, TOGETHER, FOREVER — TEAM ASTRO",
-  src: "/Team Astro - Better, Together, Forever.flac",
-  type: "audio/flac",
+  src: "/media/better-together-forever-v1.m4a",
+  type: "audio/mp4",
   volume: 0.25,
   fadeInMs: 1000,
   fadeOutMs: 300,
@@ -131,7 +131,7 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
       <audio
         ref={audioRef}
         loop
-        preload="metadata"
+        preload="none"
         onError={() => setIsUnavailable(true)}
         onPause={() => {
           setIsEngaged(false);

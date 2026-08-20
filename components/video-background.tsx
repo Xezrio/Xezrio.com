@@ -1,8 +1,9 @@
+import { DeferredBackgroundVideo } from "./deferred-background-video";
 import styles from "./video-background.module.css";
 
 type VideoBackgroundProps = {
   src: string;
-  poster?: string;
+  poster: string;
 };
 
 export function VideoBackground({
@@ -10,19 +11,14 @@ export function VideoBackground({
   poster,
 }: VideoBackgroundProps) {
   return (
-    <div className={styles.background} aria-hidden="true">
-      <video
-        className={styles.video}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+    <div className={styles.background}>
+      <DeferredBackgroundVideo
+        className={styles.media}
+        posterClassName={styles.poster}
+        videoClassName={styles.video}
         poster={poster}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-
+        src={src}
+      />
       <div className={styles.shade} />
     </div>
   );

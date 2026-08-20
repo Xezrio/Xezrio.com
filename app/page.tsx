@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./home.module.css";
 import ui from "@/components/ui.module.css";
+import { DeferredBackgroundVideo } from "@/components/deferred-background-video";
 import { RecordPlayer } from "@/components/record-player";
 import { blogPosts, reviews } from "@/lib/content";
 
@@ -10,18 +11,15 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <section className={styles.hero} aria-labelledby="hero-title">
-        <video
-          className={styles.heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/background.png"
-          aria-hidden="true"
-        >
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
+        <DeferredBackgroundVideo
+          className={styles.heroMedia}
+          posterClassName={styles.heroPoster}
+          videoClassName={styles.heroVideo}
+          poster="/media/home-poster-v1.webp"
+          src="/media/home-background-v1.mp4"
+          mobileSrc="/media/home-background-mobile-v1.mp4"
+          revealDelayMs={2600}
+        />
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={`${ui.shell} ${styles.heroInner}`}>
           <div className={styles.heroTopline}>

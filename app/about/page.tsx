@@ -25,8 +25,8 @@ export default function AboutPage() {
   return (
     <main className={`${styles.page} ${ui.innerPage}`}>
       <VideoBackground
-        src="/backgrounds/about/about-background.mp4"
-        poster="/backgrounds/about/about-background.png"
+        src="/media/about-background-v1.mp4"
+        poster="/media/about-poster-v1.png"
       />
       <div className={ui.shell}>
         <header className={styles.intro}>
