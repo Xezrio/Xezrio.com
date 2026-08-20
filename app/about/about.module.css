@@ -173,12 +173,22 @@
   color: #302b25;
 }
 
-.aboutCard > p {
+.copyStack {
+  display: grid;
+}
+
+.copyStack > p {
+  grid-area: 1 / 1;
   margin: 0 0 22px;
   color: #514a40;
   font-size: 20px;
   font-weight: 650;
   line-height: 2;
+}
+
+.formalCopy {
+  visibility: hidden;
+  font-family: var(--font-sans);
 }
 
 .foldButton {
@@ -226,8 +236,12 @@
   outline-offset: -6px;
 }
 
-.formalFont > p {
-  font-family: var(--font-sans);
+.formalFont .handwritingCopy {
+  visibility: hidden;
+}
+
+.formalFont .formalCopy {
+  visibility: visible;
 }
 
 .contactCard {
@@ -272,7 +286,9 @@
 }
 
 @media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: minmax(0, 1fr); }
+
+  .layout > * { min-width: 0; }
 
   .bottom {
     align-items: start;
@@ -282,6 +298,18 @@
 
 @media (max-width: 580px) {
   .intro { margin-bottom: 54px; }
+
+  .contactCard { padding: 24px; }
+
+  .socialList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .socialLink {
+    min-width: 0;
+    padding-inline: 10px;
+    gap: 7px;
+  }
 
   .titleRow {
     gap: 8px;

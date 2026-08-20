@@ -27,22 +27,35 @@ export function AboutPaper() {
 
       <h2>About me</h2>
 
-      <p>
-        Heyy, I&apos;m Xezrio. Welcome to my little den on the Internet.
-        <br />
-        I like music, traveling, stories, and wandering into whatever
-        happens to catch my interest.
-        <br />
-        <br />
-        I&apos;m the kind of person who likes keeping things around —
-        songs I love, stories that stay with me, small memories, random
-        thoughts, and things I&apos;ve made along the way.
-        <br />
-        <br />
-        So that&apos;s mostly what this place is for.
-        <br />
-        A little corner of the internet for the things I like.
-      </p>
+      <div className={styles.copyStack}>
+        <p className={styles.handwritingCopy} aria-hidden={isFormal}>
+          <AboutCopy />
+        </p>
+        <p className={styles.formalCopy} aria-hidden={!isFormal}>
+          <AboutCopy />
+        </p>
+      </div>
     </section>
+  );
+}
+
+function AboutCopy() {
+  return (
+    <>
+      Heyy, I&apos;m Xezrio. Welcome to my little den on the Internet.
+      <br />
+      I like music, traveling, stories, and wandering into whatever
+      happens to catch my interest.
+      <br />
+      <br />
+      I&apos;m the kind of person who likes keeping things around — songs I
+      love, stories that stay with me, small memories, random thoughts,
+      and things I&apos;ve made along the way.
+      <br />
+      <br />
+      So that&apos;s mostly what this place is for.
+      <br />
+      A little corner of the internet for the things I like.
+    </>
   );
 }
