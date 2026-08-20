@@ -39,7 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="zh-CN"
-      className={`${handwriting.variable} ${nunito.variable}`}
+      className={`${handwriting.variable} ${nunito.variable} ${segoeScript.variable}`}
     >
       <body>
         <div className={styles.ambientBackground} aria-hidden="true">
@@ -78,3 +78,15 @@ const nunito = Nunito({
   variable: "--font-nunito",
   display: "swap",
 });
+
+const segoeScript = localFont({
+  src: [
+    {
+      path: "./fonts/SegoeScriptBold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-segoe",
+  display: "swap",
+}); 

@@ -14,6 +14,7 @@ import {
   SiX,
 } from "react-icons/si";
 import { MdOutlineEmail } from "react-icons/md";
+import { AboutPaper } from "./about-paper";
 
 export const metadata: Metadata = {
   title: "About",
@@ -43,10 +44,7 @@ export default function AboutPage() {
         </header>
 
         <div className={styles.layout}>
-          <section className={`${ui.glassCard} ${styles.aboutCard}`}>
-            <h2>About me</h2>
-            <p>I will fill this later</p>
-          </section>
+          <AboutPaper />
           {/* FIND ME */}
           <aside className={`${styles.contactCard}`}>
             <p className={`${ui.eyebrow} ${styles.contactEyebrow} ${styles.eyebrowAdjust}`}>FOLLOW ME ON</p>

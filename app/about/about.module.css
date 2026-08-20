@@ -122,7 +122,7 @@
   transition: color 200ms ease;
 }
 
-.layout {
+.layout { 
   display: grid;
   align-items: start;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
@@ -130,23 +130,104 @@
 }
 
 .aboutCard {
-  padding: clamp(32px, 5vw, 58px);
-  border-radius: 28px;
+  position: relative;
+  padding: clamp(42px, 6vw, 68px);
+
+  /* 模仿纸张 */
+  border: 1px solid rgba(89, 70, 45, 0.28);
+  border-radius: 3px;
+  background:
+  linear-gradient(
+    90deg,
+    transparent 0 42px,
+    rgba(177, 91, 81, 0.22) 42px 43px,
+    transparent 43px
+  ),
+  repeating-linear-gradient(
+    to bottom,
+    #eee6d7 0 39px,
+    rgba(249, 250, 250, 0.647) 39px 40px
+  );
+  color: #302b25;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 24px 60px rgba(0, 0, 0, 0.4);
+
+  transform: rotate(-0.35deg);
+  font-family: var(--font-segoe);
+
+  /* 模拟纸张折角，这是纸本身的形状 */
+  clip-path: polygon(
+    0 0,
+    calc(100% - 65px) 0,
+    100% 52px,
+    100% 100%,
+    0 100%
+  );
+
+  min-height: 699px;
 }
 
-.aboutCard h2,
-.contactCard h2 {
-  margin: 0 0 28px;
-  font-size: 22px;
-  font-weight: 500;
+.aboutCard h2 {
+  color: #302b25;
 }
 
 .aboutCard > p {
   margin: 0 0 22px;
-  color: #a0afba;
-  font-size: 18px;
-  font-weight: 500;
+  color: #514a40;
+  font-size: 20px;
+  font-weight: 650;
   line-height: 2;
+}
+
+.foldButton {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+
+  width: 64px;
+  height: 64px;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* 真正看得见的三角形折角 */
+.foldButton::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 0;
+
+  width: 64px;
+  height: 64px;
+
+  background: #d6c8b1;
+  clip-path: polygon(0 0, 0 100%, 95% 88%);
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+  transform-origin: top right;
+
+  transform: rotate(-5deg);
+}
+
+.foldButton:hover::before {
+  background: #c7b79c;
+}
+
+.foldButton:focus-visible {
+  outline: 2px solid #5f5548;
+  outline-offset: -6px;
+}
+
+.formalFont > p {
+  font-family: var(--font-sans);
 }
 
 .contactCard {
@@ -212,5 +293,12 @@
 
   .titleGif {
     width: 42px;
+  }
+}
+
+@media (max-width: 760px) {
+  .aboutCard {
+    padding: 36px 30px;
+    transform: none;
   }
 }
