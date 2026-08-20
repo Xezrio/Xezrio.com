@@ -1,0 +1,150 @@
+.page {
+  display: grid;
+  min-height: calc(100vh - 128px);
+  padding: 72px 24px;
+  place-items: center;
+}
+
+.card {
+  width: min(100%, 440px);
+  padding: 40px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(16, 16, 17, 0.92);
+  box-shadow: var(--card-shadow);
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.card h1 {
+  margin-bottom: 10px;
+  font-size: clamp(30px, 7vw, 42px);
+  letter-spacing: -0.04em;
+}
+
+.intro,
+.notice,
+.switchLink {
+  color: var(--muted-bright);
+  line-height: 1.7;
+}
+
+.intro { margin-bottom: 28px; }
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.form label {
+  margin-top: 8px;
+  color: var(--muted-bright);
+  font-size: 13px;
+}
+
+.form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line-bright);
+  border-radius: 10px;
+  outline: none;
+  background: #080808;
+  color: var(--foreground);
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form input:focus {
+  border-color: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordField input {
+  padding-right: 50px;
+}
+
+.form button {
+  height: 48px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--foreground);
+  color: #050505;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.form button:disabled {
+  cursor: wait;
+  opacity: 0.58;
+}
+
+.form .passwordToggle {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted-bright);
+  font-size: 17px;
+  font-weight: 400;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.form .passwordToggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--foreground);
+}
+
+.form .passwordToggle:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.58);
+  outline-offset: -2px;
+}
+
+.error {
+  margin: 4px 0 0;
+  color: #ff9e9e;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.notice {
+  margin: 20px 0 0;
+  font-size: 12px;
+}
+
+.switchLink {
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.switchLink a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .page { padding: 44px 18px; }
+  .card { padding: 30px 24px; }
+}

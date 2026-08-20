@@ -145,6 +145,14 @@
   color: var(--muted-bright);
 }
 
+.usernamePending {
+  visibility: hidden;
+}
+
+.profileLink[aria-disabled="true"] {
+  pointer-events: none;
+}
+
 .username:hover {
   text-decoration: underline;
   color:#fff;

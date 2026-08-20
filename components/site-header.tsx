@@ -14,14 +14,15 @@ const navigation = [
 
 type HeaderUser = {
   name: string;
-  avatar: string | StaticImageData;
+  avatar?: string | StaticImageData;
 };
 
 type SiteHeaderProps = {
   user?: HeaderUser | null;
+  isAuthPending?: boolean;
 };
 
-export function SiteHeader({ user = null }: SiteHeaderProps) {
+export function SiteHeader({ user = null, isAuthPending = false }: SiteHeaderProps) {
   const displayName = user?.name ?? "Login";
 
   return (
@@ -48,13 +49,17 @@ export function SiteHeader({ user = null }: SiteHeaderProps) {
         </nav>
         <Link
           className={styles.profileLink}
-          href="/about"
-          aria-label={user ? `${displayName} 's Personal Page'` : "Register"}
-          title={user ? displayName : "Guest"}
+          href={user ? "/account" : "/login"}
+          aria-disabled={isAuthPending}
+          aria-label={isAuthPending ? "正在读取登录状态" : user ? `${displayName} 的账号页面` : "登录或注册"}
+          tabIndex={isAuthPending ? -1 : undefined}
+          title={isAuthPending ? undefined : user ? displayName : "Guest"}
         >
-          <span className={styles.username}>{displayName}</span>
+          <span className={`${styles.username} ${isAuthPending ? styles.usernamePending : ""}`}>
+            {displayName}
+          </span>
           <span className={styles.avatarFrame}>
-            {user ? (
+            {user?.avatar ? (
               <Image
                 className={styles.pfp}
                 src={user.avatar}

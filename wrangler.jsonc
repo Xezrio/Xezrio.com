@@ -23,6 +23,18 @@
   "images": {
     "binding": "IMAGES"
   },
+  "d1_databases": [
+    {
+      "binding": "AUTH_DB",
+      "database_name": "xezrio-auth",
+      // Replace this after running: npx wrangler d1 create xezrio-auth
+      "database_id": "e1f2a687-8e4e-4ae5-a488-6d1677be14fb",
+      "migrations_dir": "db/migrations"
+    }
+  ],
+  "vars": {
+    "BETTER_AUTH_URL": "https://xezrio.com"
+  },
   "observability": {
     "enabled": true
   }

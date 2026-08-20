@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeaderAuth } from "@/components/site-header-auth";
 import { FloatingRecordPlayer } from "@/components/floating-record-player";
 import { MusicPlayerProvider } from "@/components/music-player-context";
 import "./globals.css";
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <span className={styles.grain} />
             <span className={styles.rainLines} />
           </div>
-          <SiteHeader />
+          <SiteHeaderAuth />
           {children}
           <SiteFooter />
           <FloatingRecordPlayer />
