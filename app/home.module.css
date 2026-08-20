@@ -53,11 +53,15 @@
 
 .heroTopline {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   color: rgba(245, 245, 247, 0.54);
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.16em;
+}
+
+.heroTopline > span {
   animation: copyArrival 1.1s 100ms var(--hero-ease-out) both;
 }
 
@@ -726,7 +730,7 @@
   }
 
   .heroInner { padding-block: 26px 32px; }
-  .heroTopline span:last-child { display: none; }
+  .heroTopline > span { padding-top: 10px; }
   .heroCopy { padding-block: 58px; }
   .heroTitle { font-size: clamp(52px, 16vw, 78px); line-height: 0.94; }
   .heroLede { max-width: 290px; line-height: 1.7; }

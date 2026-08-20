@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./home.module.css";
 import ui from "@/components/ui.module.css";
+import { RecordPlayer } from "@/components/record-player";
 import { blogPosts, reviews } from "@/lib/content";
 
 
@@ -25,7 +26,7 @@ export default function Home() {
         <div className={`${ui.shell} ${styles.heroInner}`}>
           <div className={styles.heroTopline}>
             <span>PORTFOLIO /</span>
-            <span>Up for some music?</span>
+            <RecordPlayer />
           </div>
 
           <div className={styles.heroCopy}>
